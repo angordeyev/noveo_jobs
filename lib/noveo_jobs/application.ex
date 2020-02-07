@@ -1,0 +1,32 @@
+defmodule NoveoJobs.Application do
+  # See https://hexdocs.pm/elixir/Application.html
+  # for more information on OTP Applications
+  @moduledoc false
+
+  use Application
+
+  def start(_type, _args) do
+    # List all child processes to be supervised
+    children = [
+      # Start the Ecto repository
+      #NoveoJobs.Repo,
+      # Start the endpoint when the application starts
+      NoveoJobsWeb.Endpoint,
+      # Starts a worker by calling: NoveoJobs.Worker.start_link(arg)
+      # {NoveoJobs.Worker, arg},
+      ProfessionsReport
+    ]
+
+    # See https://hexdocs.pm/elixir/Supervisor.html
+    # for other strategies and supported options
+    opts = [strategy: :one_for_one, name: NoveoJobs.Supervisor]
+    Supervisor.start_link(children, opts)
+  end
+
+  # Tell Phoenix to update the endpoint configuration
+  # whenever the application is updated.
+  def config_change(changed, _new, removed) do
+    NoveoJobsWeb.Endpoint.config_change(changed, removed)
+    :ok
+  end
+end
