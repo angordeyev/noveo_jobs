@@ -64,18 +64,22 @@ defmodule ProfessionsReport do
   end
 
   def render(table) do
-    # header = table["Total"]
-    # {_, header } = Map.pop(header, "Total")
-    header = Map.keys(table["Total"]) |> Enum.sort(fn(x, y) -> x == "Total" end)
-    header = ["" | header]
+    map_to_list = fn(map) ->
+      Map.to_list(map)
+      |> Enum.reverse() # move Total to the beginning
+      |> Enum.map(fn{k, v} -> v end)
 
-    {_, table} = Map.pop(table, "Total")
+    end
 
+    header = [" " | Map.keys(table["Total"])]
 
+    table =
+      table
+      |> Map.to_list()
+      |> Enum.map(fn({k, map}) -> [k | map_to_list.(map)] end)
+      |> Enum.reverse() # total Total to the beginning
 
-    #first_row = table["Total"]
-    #first_row = ["Total"]
-
+    [header | table]
   end
 
 end

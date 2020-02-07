@@ -17,8 +17,4 @@ defmodule GeoServicesTest do
      assert match?([_, _], GeoServices.random_coordinates())
   end
 
-
-
-
-
 end

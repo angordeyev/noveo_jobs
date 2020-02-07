@@ -1,6 +1,7 @@
 # TODO
 
-- [ ] render function
+- [ ] visualize table on page
+- [x] render function
 - [x] Load file
 - [x] Create phoenix application
 - [x] Move to Phoenix
