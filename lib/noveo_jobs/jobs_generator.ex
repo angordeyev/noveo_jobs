@@ -13,7 +13,7 @@ defmodule JobsGenerator do
 
   defp generate_jobs() do
     :timer.sleep(1000);
-    IO.puts "ping"
+    #IO.puts "ping"
 
     # add({category, continent})
 

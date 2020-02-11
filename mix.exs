@@ -45,6 +45,7 @@ defmodule NoveoJobs.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:httpoison, "~> 1.6"},
       {:geo_postgis, "~> 3.3"},
+      {:geo, "~> 3.3"},
       {:geocalc, "~> 0.8.0"},
       {:geocoder, "~> 1.0"},
       {:flow, "~> 1.0"},

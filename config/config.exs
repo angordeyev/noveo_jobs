@@ -10,6 +10,10 @@ use Mix.Config
 config :noveo_jobs,
   ecto_repos: [NoveoJobs.Repo]
 
+config :noveo_jobs, NoveoJobs.Repo,
+  types: NoveoJobs.PostgrexTypes
+
+
 # Configures the endpoint
 config :noveo_jobs, NoveoJobsWeb.Endpoint,
   url: [host: "localhost"],

@@ -21,7 +21,10 @@ The application will be available at http://localhost:4000
 
 # TODO
 
-- [ ] insert geo data
+- [ ] return from custom query (return all jobs)
+- [ ] dumb rest point
+- [ ] posgres, query in radius
+- [x] insert geo data
 - [ ] convert latitude longitude to geometry
 - [x] create table with geo data
 - [x] add postgress

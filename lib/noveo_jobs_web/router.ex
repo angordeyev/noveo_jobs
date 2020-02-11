@@ -17,7 +17,15 @@ defmodule NoveoJobsWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/find-in-radius", FindInRadiusController, :find_in_radius
   end
+
+  scope "/api", NoveoJobsWeb do
+    pipe_through :api
+    get "/find-jobs-in-radius", JobsController, :find_in_radius
+  end
+
+
 
   # Other scopes may use custom stacks.
   # scope "/api", NoveoJobsWeb do

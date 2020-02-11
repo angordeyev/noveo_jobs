@@ -5,7 +5,7 @@ defmodule Job do
     field :profession_id, :integer
     field :contract_type, :string
     field :name,          :string
-    field :location,      Geo.Point
+    field :location,      Geo.PostGIS.Geometry
   end
 
   def changeset(job, params \\ %{}) do
