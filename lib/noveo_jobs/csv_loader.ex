@@ -19,6 +19,7 @@ defmodule CsvLoader do
 
   # Filling the database with CSV files roughly without any optimization
   # Filling take place only if the database is empty
+  # Can be replaced by bulk insert for performance
   def fill_database() do
     if NoveoJobs.Repo.aggregate(Continent, :count, :id) == 0 do
       NoveoJobs.Repo.insert(%Continent{name: "South America"})
@@ -47,7 +48,7 @@ defmodule CsvLoader do
           continent_name = GeoServices.get_continent(lat_float, lon_float)
           continent_id = continents[continent_name]
           if profession_id_integer < 42 do
-            NoveoJobs.Repo.insert(%Job{continent_id: continent_id, profession_id: profession_id_integer, contract_type: contract_type, name: name, location: %Geo.Point{coordinates: {1, 2}} })
+            NoveoJobs.Repo.insert(%Job{continent_id: continent_id, profession_id: profession_id_integer, contract_type: contract_type, name: name, location: %Geo.Point{coordinates: {lat_float, lon_float}} })
           end
         end
       end)
