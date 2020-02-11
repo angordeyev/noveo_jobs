@@ -12,11 +12,8 @@ defmodule JobsGenerator do
   end
 
   defp generate_jobs() do
-    :timer.sleep(1000);
-    #IO.puts "ping"
-
-    # add({category, continent})
-
+    ProfessionsReport.add({"Tech", "Asia"})
+    :timer.tc(fn -> MicroTimer.usleep(50) end)
     generate_jobs()
   end
 

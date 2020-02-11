@@ -1,3 +1,5 @@
+# The coordinates are taken from https://stackoverflow.com/questions/13905646/get-the-continent-given-the-latitude-and-longitude
+# See GeoServices form more details
 defmodule ContinentShapes do
   def continent_shapes do
     %{

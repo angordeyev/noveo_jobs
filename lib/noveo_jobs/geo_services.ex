@@ -1,7 +1,5 @@
 defmodule GeoServices do
-  @moduledoc """
-  Functions to work with geo coordinates
-  """
+
 
   # This approach is chosen as fastest.
   # The coordinates are taken from https://stackoverflow.com/questions/13905646/get-the-continent-given-the-latitude-and-longitude

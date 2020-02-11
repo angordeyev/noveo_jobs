@@ -49,7 +49,8 @@ defmodule NoveoJobs.MixProject do
       {:geocalc, "~> 0.8.0"},
       {:geocoder, "~> 1.0"},
       {:flow, "~> 1.0"},
-      {:csv, "~> 2.3"}
+      {:csv, "~> 2.3"},
+      {:micro_timer, "~> 0.1.1"}
     ]
   end
 

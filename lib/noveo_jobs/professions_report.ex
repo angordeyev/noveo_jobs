@@ -8,6 +8,7 @@ defmodule ProfessionsReport do
 
   @impl true
   def init(_) do
+    CsvLoader.fill_database()
     professions =
       CsvLoader.load_professions()
       |> Enum.drop(1) # drop header
@@ -29,10 +30,6 @@ defmodule ProfessionsReport do
   def handle_call(:get, _from, %{professions: professions, report: report}) do
     {:reply, report, %{professions: professions, report: report}}
   end
-
-  # def build_report() do
-  #   GenServer.call(ProfessionsReport, :build_report)
-  # end
 
   @impl true
   def handle_call(:build_report, _from, %{professions: professions, report: report}) do
@@ -99,7 +96,7 @@ defmodule ProfessionsReport do
   end
 
   def add({category, continent}) do
-    GenServer.cast(ProfessionsReport, {:get, {category, continent}})
+    GenServer.cast(ProfessionsReport, {:add, {category, continent}})
   end
 
   def add(report, {category, continent}) do
@@ -151,5 +148,6 @@ defmodule ProfessionsReport do
 
     [header | table]
   end
+
 
 end

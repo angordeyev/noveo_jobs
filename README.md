@@ -10,8 +10,7 @@ mix deps.get
 
 Run the following commands to create the database:
 
-mix ecto.create
-mix ecto.migrate
+mix ecto.setup
 
 To start the application:
 
@@ -21,8 +20,12 @@ The application will be available at http://localhost:4000
 
 # TODO
 
-- [ ] return from custom query (return all jobs)
-- [ ] dumb rest point
+- [ ] insert geographic into database
+- [ ] load csv to database
+- [x] run custom query ecto
+- [x] pass parameters
+- [x] return from custom query (return all jobs)
+- [x] dumb rest point
 - [ ] posgres, query in radius
 - [x] insert geo data
 - [ ] convert latitude longitude to geometry

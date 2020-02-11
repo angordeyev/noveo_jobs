@@ -17,8 +17,10 @@ defmodule NoveoJobs.Repo.Migrations.Jobs do
       add :profession_id, references(:professions)
       add :contract_type, :string
       add :name,          :string
-      add :location,      :geometry
+      add :location,      :geography
     end
     create index(:jobs, [:location]) # for faster search in radius
+    create index(:jobs, [:continent_id])
+    create index(:jobs, [:profession_id])
   end
 end
