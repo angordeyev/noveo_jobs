@@ -11,6 +11,8 @@
   "file_system": {:hex, :file_system, "0.2.8", "f632bd287927a1eed2b718f22af727c5aeaccc9a98d8c2bd7bff709e851dc986", [:mix], [], "hexpm"},
   "flow": {:hex, :flow, "1.0.0", "3df0b6687ba01dae248c615d50e1f8b36631e3eb9b9a663adf38262035d9fc08", [:mix], [{:gen_stage, "~> 1.0", [hex: :gen_stage, repo: "hexpm", optional: false]}], "hexpm"},
   "gen_stage": {:hex, :gen_stage, "1.0.0", "51c8ae56ff54f9a2a604ca583798c210ad245f415115453b773b621c49776df5", [:mix], [], "hexpm"},
+  "geo": {:hex, :geo, "3.3.3", "1119302b20d21515fbcec0a180b82653524067873ed333e7fa1f55e39959d702", [:mix], [], "hexpm"},
+  "geo_postgis": {:hex, :geo_postgis, "3.3.1", "45bc96b9121d0647341685dc9d44956d61338707482d655c803500676b0413a1", [:mix], [{:geo, "~> 3.3", [hex: :geo, repo: "hexpm", optional: false]}, {:jason, "~> 1.0", [hex: :jason, repo: "hexpm", optional: true]}, {:poison, "~> 2.2 or ~> 3.0 or ~> 4.0", [hex: :poison, repo: "hexpm", optional: true]}, {:postgrex, "~> 0.14", [hex: :postgrex, repo: "hexpm", optional: false]}], "hexpm"},
   "geocalc": {:hex, :geocalc, "0.8.0", "66f389d7b1f2a5a27915bc3cf4a9336f998818f7a2da5bcefcc39c407167bd70", [:mix], [], "hexpm"},
   "geocoder": {:hex, :geocoder, "1.0.0", "a8475ad897e715a25e34299fc7f068d88f7467767d8a622e228aab871917713e", [:mix], [{:geohash, "~> 1.2", [hex: :geohash, repo: "hexpm", optional: false]}, {:httpoison, "~> 1.5", [hex: :httpoison, repo: "hexpm", optional: false]}, {:poison, "~> 4.0", [hex: :poison, repo: "hexpm", optional: false]}, {:poolboy, "~> 1.5", [hex: :poolboy, repo: "hexpm", optional: false]}, {:towel, "~> 0.2", [hex: :towel, repo: "hexpm", optional: false]}], "hexpm"},
   "geohash": {:hex, :geohash, "1.2.1", "586d0e0bf961cf279eadbefc4e664719568eee7eb8d502eb2bfd765b60916427", [:mix], [], "hexpm"},

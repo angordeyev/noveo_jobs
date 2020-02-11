@@ -35,8 +35,8 @@ defmodule NoveoJobs.MixProject do
     [
       {:phoenix, "~> 1.4.10"},
       {:phoenix_pubsub, "~> 1.1"},
-      #{:phoenix_ecto, "~> 4.0"},
-      #{:ecto_sql, "~> 3.1"},
+      {:phoenix_ecto, "~> 4.0"},
+      {:ecto_sql, "~> 3.1"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 2.11"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
@@ -44,6 +44,7 @@ defmodule NoveoJobs.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:httpoison, "~> 1.6"},
+      {:geo_postgis, "~> 3.3"},
       {:geocalc, "~> 0.8.0"},
       {:geocoder, "~> 1.0"},
       {:flow, "~> 1.0"},
@@ -62,8 +63,8 @@ defmodule NoveoJobs.MixProject do
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: [
-        # "ecto.create --quiet",
-        # "ecto.migrate",
+        "ecto.create --quiet",
+        "ecto.migrate",
         "test"]
     ]
   end

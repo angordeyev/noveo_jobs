@@ -9,12 +9,13 @@ defmodule NoveoJobs.Application do
     # List all child processes to be supervised
     children = [
       # Start the Ecto repository
-      #NoveoJobs.Repo,
+      NoveoJobs.Repo,
       # Start the endpoint when the application starts
       NoveoJobsWeb.Endpoint,
       # Starts a worker by calling: NoveoJobs.Worker.start_link(arg)
       # {NoveoJobs.Worker, arg},
-      ProfessionsReport
+      ProfessionsReport,
+      JobsGenerator
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

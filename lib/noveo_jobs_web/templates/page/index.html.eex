@@ -1,9 +1,7 @@
 <table>
-  <th>
-    <%= for x <- header() do %>
-      <td><%=x%></td>
-    <% end %>
-  </th>
+  <%= for x <- header() do %>
+    <th><%=x%></th>
+  <% end %>
 
   <%= for row <- table() do %>
     <tr>
@@ -13,3 +11,9 @@
     </tr>
   <% end %>
 </table>
+
+<script>
+  setTimeout(function(){
+    window.location.reload(1);
+  }, 1000);
+</script>
