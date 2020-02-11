@@ -1,7 +1,8 @@
+<title>Jobs</title>
+
 <p>
   <a href="http://localhost:4000/api/find-jobs-in-radius?latitude=1&longitude=1&radius=10000">http://localhost:4000/api/find-jobs-in-radius?latitude=1&longitude=1&radius=10000</a>
 </p>
-
 
 <table>
   <%= for x <- header() do %>
@@ -18,7 +19,7 @@
 </table>
 
 <script>
-  setTimeout(function(){
+  setTimeout(function(){ // refresh page every seonc to see update result
     window.location.reload(1);
   }, 1000);
 </script>

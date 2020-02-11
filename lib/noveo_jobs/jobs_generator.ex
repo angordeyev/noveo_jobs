@@ -1,3 +1,4 @@
+# Generates jobs to test the report in real time
 defmodule JobsGenerator do
   use GenServer
 
@@ -11,9 +12,17 @@ defmodule JobsGenerator do
     {:ok, []}
   end
 
+  # The wait time is 50 microseconds, so about 10000 jobs will be generated per second
   defp generate_jobs() do
-    ProfessionsReport.add({"Tech", "Asia"})
-    :timer.tc(fn -> MicroTimer.usleep(50) end)
+    [lat, lon] = GeoServices.random_coordinates()
+    continent = GeoServices.get_continent(lat, lon)
+    if (continent != "N/A") do
+      categories =  {"Tech", "Retail", "Marketing / Comm'", "Créa", "Conseil", "Business", "Admin"}
+      last_elem = tuple_size(categories) -1
+      category = elem(categories, Enum.random(0..last_elem))
+      ProfessionsReport.add({category, continent})
+    end
+    :timer.tc(fn -> MicroTimer.usleep(50) end) # wait 50 microseconds
     generate_jobs()
   end
 

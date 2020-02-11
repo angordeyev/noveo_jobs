@@ -1,5 +1,5 @@
+# Module to work with coordinates and
 defmodule GeoServices do
-
 
   # This approach is chosen as fastest.
   # The coordinates are taken from https://stackoverflow.com/questions/13905646/get-the-continent-given-the-latitude-and-longitude
@@ -61,25 +61,7 @@ defmodule GeoServices do
     ["Europe", "Asia", "Africa", "Australia", "North America", "South America", "Antarctica"]
   end
 
-
-
-  # def distance_between() do
-  #   Geocalc.distance_between(point_1, point_2)
-  # end
-
-
-  def post_command(command, params_map \\ %{}) do
-    # params = "command=#{command}&nonce=#{nonce}" <> map_to_html_params(params_map)
-    # Logger.debug params
-    # case HTTPoison.post("https://poloniex.com/tradingApi", params, %{"Key" => key, "Sign" => sign(params), "Content-Type" => "application/x-www-form-urlencoded"}) do
-    #   {:ok, %HTTPoison.Response{body: body} } ->
-    #     {:ok, Poison.decode! body}
-    #   {:error, message}  ->
-    #     message |> inspect |> Logger.error
-    #     {:error, message}
-    # end
-  end
-
+  # Run to test performance
   def performance_test do
     1..80000
     |> Flow.from_enumerable()

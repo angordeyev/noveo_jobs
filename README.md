@@ -18,9 +18,23 @@ iex -S mix phx.server
 
 The application will be available at http://localhost:4000
 
+# Approaches chosen:
+
+1. Rough polygons used to detect continent, this approach is very fast and allows to do more then 80 000 operations per second on average machine
+
+2. PostGIS is chosen to do calculations as a general approach, it supports spatial data indexes. R-Trees may be use with in-memory storage to boost performance, however the current solution allows to handle tens of thousands jobs per second
+
+# Caveats
+
+Postgres makes wrong calculation of radius and distances although the Postgres documentation about it is clear. It counts the distance between St.Petersburg and Moscow more than 800 kilometers.
+
+Probably the performance may be increased if more parallel calculation will take place
+
+More defence programming should be used to run in production
+
 # TODO
 
-- [ ] Remove unnecessary code
+- [x] fix tests 
 - [x] insert geographic into database
 - [x] load csv to database
 - [x] run custom query ecto

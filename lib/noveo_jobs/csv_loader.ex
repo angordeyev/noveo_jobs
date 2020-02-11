@@ -18,6 +18,7 @@ defmodule CsvLoader do
   end
 
   # Filling the database with CSV files roughly without any optimization
+  # Filling take place only if the database is empty
   def fill_database() do
     if NoveoJobs.Repo.aggregate(Continent, :count, :id) == 0 do
       NoveoJobs.Repo.insert(%Continent{name: "South America"})

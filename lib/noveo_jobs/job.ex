@@ -9,13 +9,4 @@ defmodule Job do
     field :location,      Geo.PostGIS.Geometry
   end
 
-  def changeset(job, params \\ %{}) do
-    job
-    |> Ecto.Changeset.cast(params, [:profession_id, :contract_type, :name, :location])
-  end
-
-  def insert(continent_id, profession_id, contact_type, name, location) do
-    NoveoJobs.Repo.insert(%Job{name: "hello", location: %Geo.Point{coordinates: {30, -90}}})
-  end
-
 end
