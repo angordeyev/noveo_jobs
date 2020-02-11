@@ -1,4 +1,4 @@
-# Load CSV files
+# Dynamic report
 defmodule ProfessionsReport do
   use GenServer
 
