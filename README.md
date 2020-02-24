@@ -20,9 +20,10 @@ The result can be seen at:
 
 ## 02/03
 
-The current projects contains implementation:
-`./lib/noveo_jobs/professions_report.ex`
-`./lib/noveo_jobs/geo_services.ex`
+The current projects contains implementation:  
+files:  
+`./lib/noveo_jobs/professions_report.ex`  
+`./lib/noveo_jobs/geo_services.ex`  
 modules: `ProfessionsReport`, `GeoServices`
 
 There is a fast function that calculates continent base on the roughly approximated continent regions on the map, it will work well for the most of the areas that can have jobs.
@@ -31,7 +32,8 @@ Then a job that contains continent and category is added to the report and repor
 
 ## 03/03
 
-Code is available at: `./lib/noveo_jobs_web/controllers/jobs_controller.ex`, 
+Code is available at:  
+`./lib/noveo_jobs_web/controllers/jobs_controller.ex`  
 function: `NoveoJobsWeb.JobsController.find_in_radius/2`
 
 API is available at:
