@@ -4,19 +4,41 @@
 PostgreSQL with PostGIS plugin installed
 The database should be accessable at localhost with the default credentials "login: postgres, password: postgres".
 
-Get the dependencies:
-
-mix deps.get
-
-Run the following commands to create the database:
-
-mix ecto.setup
-
-To start the application:
-
-iex -S mix phx.server
+* Install dependencies with `mix deps.get`
+* Create and migrate your database with `mix ecto.setup`
+* Install Node.js dependencies with `cd assets && npm install`
+* Start Phoenix console `iex -S mix phx.server`
 
 The application will be available at http://localhost:4000
+
+# Tasks comments
+
+## 01/03
+
+The result can be seen at:
+[http://localhost:4000](http://localhost:4000)
+
+## 02/03
+
+The current projects contains implementation:
+`./lib/noveo_jobs/professions_report.ex`
+`./lib/noveo_jobs/geo_services.ex`
+modules: `ProfessionsReport`, `GeoServices`
+
+There is a fast function that calculates continent base on the roughly approximated continent regions on the map, it will work well for the most of the areas that can have jobs.
+
+Then a job that contains continent and category is added to the report and report is recalculated.
+
+## 03/03
+
+Code is available at: `./lib/noveo_jobs_web/controllers/jobs_controller.ex`, 
+function: `NoveoJobsWeb.JobsController.find_in_radius/2`
+
+API is available at:
+[http://localhost:4000/api/find-jobs-in-radius](http://localhost:4000/api/find-jobs-in-radius)
+
+Example:
+[http://localhost:4000/api/find-jobs-in-radius?latitude=1&longitude=1&radius=10000](http://localhost:4000/api/find-jobs-in-radius?latitude=1&longitude=1&radius=10000)
 
 # Approaches chosen:
 
@@ -71,7 +93,6 @@ More defence programming should be used to run in production
 - [x] Create function to detetect continent from point
 - [x] Convert polygons from Stackoverflow
 - [x] Continent coordinates to separate file
-
 
 # Approaches R3 
 
