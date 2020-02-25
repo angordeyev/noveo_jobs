@@ -22,9 +22,12 @@ The result can be seen at:
 
 The current projects contains implementation:  
 files:  
-`./lib/noveo_jobs/professions_report.ex`  
-`./lib/noveo_jobs/geo_services.ex`  
-modules: `ProfessionsReport`, `GeoServices`
+[lib/noveo_jobs/professions_report.ex](https://github.com/angordeyev/noveo_jobs/blob/110ce8be7ba538a15d39c6a23a3a4d9d2159ec5f/lib/noveo_jobs/professions_report.ex#L2)
+[lib/noveo_jobs/geo_services.ex](https://github.com/angordeyev/noveo_jobs/blob/110ce8be7ba538a15d39c6a23a3a4d9d2159ec5f/lib/noveo_jobs/geo_services.ex#L2)
+
+Modules:
+[ProfessionsReport](https://github.com/angordeyev/noveo_jobs/blob/110ce8be7ba538a15d39c6a23a3a4d9d2159ec5f/lib/noveo_jobs/professions_report.ex#L2)
+[GeoServices](https://github.com/angordeyev/noveo_jobs/blob/110ce8be7ba538a15d39c6a23a3a4d9d2159ec5f/lib/noveo_jobs/geo_services.ex#L2)
 
 There is a fast function that calculates continent base on the roughly approximated continent regions on the map, it will work well for the most of the areas that can have jobs.
 
@@ -33,8 +36,7 @@ Then a job that contains continent and category is added to the report and repor
 ## 03/03
 
 Code is available at:  
-`./lib/noveo_jobs_web/controllers/jobs_controller.ex`  
-function: `NoveoJobsWeb.JobsController.find_in_radius/2`
+[lib/noveo_jobs_web/controllers/jobs_controller.ex](https://github.com/angordeyev/noveo_jobs/blob/110ce8be7ba538a15d39c6a23a3a4d9d2159ec5f/lib/noveo_jobs_web/controllers/jobs_controller.ex#L4) in function [NoveoJobsWeb.JobsController.find_in_radius/2](https://github.com/angordeyev/noveo_jobs/blob/110ce8be7ba538a15d39c6a23a3a4d9d2159ec5f/lib/noveo_jobs_web/controllers/jobs_controller.ex#L4)
 
 API is available at:
 [http://localhost:4000/api/find-jobs-in-radius](http://localhost:4000/api/find-jobs-in-radius)
