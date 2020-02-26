@@ -20,7 +20,29 @@ The result can be seen at:
 
 ## 02/03
 
+**General approach**  
+If the goal is to have the report mentioned in the previous task in real-time, the report should be build without evaluating all the data from the database but updated using incoming data only.  
+
+**Incoming data processing**  
+It is a first stage: a continent is calculated for the the job offer, then it is passed to the report processing module. There is a fast function that calculates continent base on the roughly approximated continent regions on the map for the performance reasons. It will work well for the most of the areas that can contain jobs. This process will multiply the performance if run in parallel processes.  
+
+**Report processing**  
+
+As the report has quite short data, the report data model is updated for each job or batch of jobs. Then it is written to the database so there is no need to recalculate the report if the system crashes. Report tables should be in sync with job report table.  
+Visual representation of the report is rerendered using the whole data model. Thought, the current implementation contains server-side rendering, client rendering can save some server processor time. Phoenix WebSocket channels is a good choice to push updated report data to the client.  
+
+**Database Storage**  
+PostgreSQL will work well for 1000 writes per second as well for for geospatial queries. Postponed database writing can be used to improve performance if there are some peaks with much more than 1000 writes per second (there can be fast queue for data to write to a database, the system writes to this queue asynchronously and continuous operation without waiting for the data to be written to the actual database). Batch database writes can improve the performance. For the fault tolerance data can be written to a fail-safe message queue.  
+
+**Fault tolerance**  
+If we choose to use queue, the job offers have to be saved to some fault tolerant one before processing, so that in case of failure no jobs should be lost. RabbitMQ Highly Available (mirrored) queues could be used for that case.  
+
+Report data and jobs data should by in sync to restore well from crash. The report and job data tables should be update in transactions.  
+
+A database server should be replicated, backup schedule should be created.  
+
 **The current projects contains implementation in files:**  
+
 [lib/noveo_jobs/professions_report.ex](https://github.com/angordeyev/noveo_jobs/blob/110ce8be7ba538a15d39c6a23a3a4d9d2159ec5f/lib/noveo_jobs/professions_report.ex#L2)  
 [lib/noveo_jobs/geo_services.ex](https://github.com/angordeyev/noveo_jobs/blob/110ce8be7ba538a15d39c6a23a3a4d9d2159ec5f/lib/noveo_jobs/geo_services.ex#L2)  
 
@@ -28,9 +50,6 @@ The result can be seen at:
 [ProfessionsReport](https://github.com/angordeyev/noveo_jobs/blob/110ce8be7ba538a15d39c6a23a3a4d9d2159ec5f/lib/noveo_jobs/professions_report.ex#L2)  
 [GeoServices](https://github.com/angordeyev/noveo_jobs/blob/110ce8be7ba538a15d39c6a23a3a4d9d2159ec5f/lib/noveo_jobs/geo_services.ex#L2)  
 
-There is a fast function that calculates continent base on the roughly approximated continent regions on the map, it will work well for the most of the areas that can have jobs.  
-
-Then a job that contains continent and category is added to the report and report is recalculated.  
 
 ## 03/03
 
