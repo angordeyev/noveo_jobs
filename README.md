@@ -26,7 +26,7 @@ If the goal is to have the report mentioned in the previous task in real-time, t
 **Incoming data processing**  
 It is a first stage: a continent is calculated for the the job offer, then it is passed to the report processing module. There is a fast function that calculates continent base on the roughly approximated continent regions on the map for the performance reasons. It will work well for the most of the areas that can contain jobs. This process will multiply the performance if run in parallel processes.  
 
-**Report processing**
+**Report processing**  
 As the report has quite short data, the report data model is updated for each job or batch of jobs. Then it is written to the database so there is no need to recalculate the report if the system crashes. Report tables should be in sync with job report table.  
 Visual representation of the report is rerendered using the whole data model. Thought, the current implementation contains server-side rendering, client rendering can save some server processor time. Phoenix WebSocket channels is a good choice to push updated report data to the client.  
 
